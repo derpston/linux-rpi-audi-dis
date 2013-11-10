@@ -16,9 +16,9 @@ echo " INSERT   COIN" > /proc/dis
 References
 ==========
 
-This project builds on the work done in (https://github.com/derpston/Audi-radio-DIS-reader)[https://github.com/derpston/Audi-radio-DIS-reader] where the protocol/format was analysed and reverse engineered.
+This project builds on the work done in [https://github.com/derpston/Audi-radio-DIS-reader](https://github.com/derpston/Audi-radio-DIS-reader) where the protocol/format was analysed and reverse engineered.
 
-This project uses a heavily butchered version of the GPIO device driver built by Redrobes as described in (http://www.raspberrypi.org/phpBB3/viewtopic.php?f=33&t=32152)[http://www.raspberrypi.org/phpBB3/viewtopic.php?f=33&t=32152].
+This project uses a heavily butchered version of the GPIO device driver built by Redrobes as described in [http://www.raspberrypi.org/phpBB3/viewtopic.php?f=33&t=32152](http://www.raspberrypi.org/phpBB3/viewtopic.php?f=33&t=32152).
 
 Compiling
 =========
@@ -30,9 +30,9 @@ Electronic connections
 
 Connecting the Raspberry Pi's GPIO pins to the DIS is relatively straightforward but might take a while.
 
-You'll need to tap or otherwise connect to the CLOCK, DATA and ENABLE lines between the radio and the DIS as described in (https://github.com/derpston/Audi-radio-DIS-reader)[https://github.com/derpston/Audi-radio-DIS-reader]. (includes pinout)
+You'll need to tap or otherwise connect to the CLOCK, DATA and ENABLE lines between the radio and the DIS as described in [https://github.com/derpston/Audi-radio-DIS-reader](https://github.com/derpston/Audi-radio-DIS-reader). (includes pinout)
 
-The radio/DIS system uses a 5V logic level and the Raspberry Pi uses a 3.3v logic level, so you'll need a level shifter/converter. I personally used three optoisolators because I wanted to keep the Pi isolated from the car's electronics as much as possible, but something like (https://www.sparkfun.com/products/11978)[https://www.sparkfun.com/products/11978] would probably work very well. Bear in mind that you'll need to find a level shifter that has at least three lines in the same direction.
+The radio/DIS system uses a 5V logic level and the Raspberry Pi uses a 3.3v logic level, so you'll need a level shifter/converter. I personally used three optoisolators because I wanted to keep the Pi isolated from the car's electronics as much as possible, but something like [https://www.sparkfun.com/products/11978](https://www.sparkfun.com/products/11978) would probably work very well. Bear in mind that you'll need to find a level shifter that has at least three lines in the same direction.
 
 The pin mapping is:
 
