@@ -31,6 +31,9 @@ int bitindex = 0;
 #define DATA    15
 #define ENABLE  18
 
+int write_proc(struct file *filp,const char *buf,size_t count,loff_t *offp);
+struct file_operations proc_fops = { write: write_proc }; 
+
 // Calculate the checksum of a message.
 char getchecksum(char *message)
 {
@@ -122,7 +125,7 @@ enum hrtimer_restart hrtimer_handler(struct hrtimer *timer)
     return HRTIMER_NORESTART;
 }
 
-int write_proc(struct file *file,const char *buf,int count,void *data )
+int write_proc(struct file *filp,const char *buf,size_t count,loff_t *offp)
 {
     char checksum;
     static char input[MAX_PROC_SIZE];
@@ -166,11 +169,9 @@ int write_proc(struct file *file,const char *buf,int count,void *data )
     return count;
 }
 
-
 int __init dis_init(void)
 {
-    proc_write_entry = create_proc_entry(PROC_FILE_NAME, 0666, NULL);
-    proc_write_entry->write_proc = write_proc;
+    proc_write_entry = proc_create(PROC_FILE_NAME,0,NULL,&proc_fops);
 
     // Configure the pins as outputs and set their initial state.
     set_output(CLOCK);
@@ -203,4 +204,3 @@ module_exit(dis_exit);
 MODULE_AUTHOR("Derpston");
 MODULE_DESCRIPTION("Audi DIS-proc interface");
 MODULE_LICENSE("Dual BSD/GPL");
-
